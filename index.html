@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Chioma 🎂</title>
+
+  <style>
+    :root{
+      --bg1:#fff0f6;
+      --bg2:#ffe0f0;
+      --card:#ffffffcc;
+      --ink:#1f1f27;
+      --muted:#5b5b66;
+      --shadow: 0 20px 60px rgba(20, 10, 30, .12);
+      --radius: 22px;
+    }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      overflow:hidden;
+    }
+
+    .card{
+      background:var(--card);
+      padding:40px 28px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      max-width:700px;
+      text-align:center;
+      animation:fadeUp 1s ease;
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    .message{
+      font-size:17px;
+      line-height:1.7;
+      color:var(--muted);
+      margin-bottom:25px;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:12px;
+      background:#ff6fa5;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:15px;
+    }
+
+    button:hover{
+      opacity:.9;
+    }
+
+    .hidden{
+      display:none;
+      margin-top:15px;
+      font-weight:bold;
+      color:#ff4f8b;
+    }
+
+    /* floating hearts */
+    .heart{
+      position:fixed;
+      bottom:-20px;
+      width:14px;
+      height:14px;
+      background:#ff6fa5;
+      transform:rotate(45deg);
+      animation:floatUp linear forwards;
+    }
+
+    .heart:before,
+    .heart:after{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:14px;
+      background:#ff6fa5;
+      border-radius:50%;
+    }
+
+    .heart:before{left:-7px;}
+    .heart:after{top:-7px;}
+
+    @keyframes floatUp{
+      to{
+        transform:translateY(-110vh) rotate(45deg);
+        opacity:0;
+      }
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Birthday Chioma 🎂</h1>
+
+  <div class="subtitle">
+    To the most amazing person I know 💖
+  </div>
+
+  <div class="message">
+    Today isn’t just another day — it’s the day someone truly special was born.<br><br>
+
+    I’m grateful for you, for your presence in my life, and for every moment we share.  
+    You make things brighter without even trying.<br><br>
+
+    I hope this year brings you peace, happiness, success, and everything your heart truly deserves.<br><br>
+
+    You’re appreciated more than you know.
+  </div>
+
+  <button onclick="showMessage()">Click me 🎁</button>
+
+  <div id="surprise" class="hidden">
+    You deserve the best. Always. Happy Birthday Chioma 💕
+  </div>
+
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showMessage(){
+  document.getElementById("surprise").style.display="block";
+  document.getElementById("music").play();
+}
+
+/* floating hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),10000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>

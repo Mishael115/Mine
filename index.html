@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday Chioma 🎂</title>
+  <title>Happy Birthday Chiomzy 🎂</title>
 
   <style>
     :root{
@@ -192,8 +192,8 @@
       </label>
     </div>
 
-    <h1 id="title">Happy Birthday Chioma 🎂</h1>
-    <div class="subtitle" id="subtitle">To the most amazing person I know 💖</div>
+    <h1 id="title">Happy Birthday Chiomzy 🎂</h1>
+    <div class="subtitle" id="subtitle">To the Shortest 💖</div>
 
     <div class="message" id="message"></div>
 
@@ -216,45 +216,47 @@
     const TEXT = {
       en: {
         title: "Happy Birthday Chioma 🎂",
-        subtitle: "To the most amazing person I know 💖",
-        message:
-`Today isn’t just another day — it’s the day someone truly special was born.
+        subtitle: "To the Shortest 💖",
+        message: `Happy Birthday to a 5'1 Queen 🎂
 
-I’m grateful for you, for your presence in my life, and for every moment we share.
-You make things brighter without even trying.
+I hope today reminds you how special you are, not just to the people around you, but in the way you carry yourself and exist in the world.
 
-I hope this year brings you peace, happiness, success, and everything your heart truly deserves.
+You deserve a year filled with clarity, growth, genuine happiness, and moments that feel right to you. The kind of peace that doesn’t need to be forced, and the kind of joy that stays.
 
-You’re appreciated more than you know.`,
-        surprise: "You deserve the best. Always. Happy Birthday Chioma 💕"
+I hope life meets you with kindness this year, and that you continue becoming the person you’re meant to be.
+
+Enjoy your day, Queen!! 💖`,
+        surprise: "You deserve a job. Happy Birthday Chioma 💕"
       },
+
       ru: {
         title: "С Днём Рождения, Чиома 🎂",
-        subtitle: "Самому прекрасному человеку, которого я знаю 💖",
-        message:
-`Сегодня — не просто день. Сегодня родился(лась) по-настоящему особенный человек.
+        subtitle: "Самой маленькой 💖",
+        message: `С днём рождения, королева 5'1 🎂
 
-Я благодарен(на) тебе за то, что ты есть в моей жизни, и за каждый момент, который мы делим.
-С тобой всё становится светлее — даже без усилий.
+Пусть сегодняшний день напомнит тебе, какая ты особенная — не только для людей рядом, но и в том, как ты держишься и как ты существуешь в этом мире.
 
-Пусть этот год принесёт тебе спокойствие, счастье, успех и всё, чего искренне желает твоё сердце.
+Ты заслуживаешь год, наполненный ясностью, ростом, настоящим счастьем и моментами, которые будут правильными именно для тебя. Таким спокойствием, которое не нужно выдавливать, и такой радостью, которая остаётся.
 
-Ты ценишься больше, чем ты думаешь.`,
-        surprise: "Ты заслуживаешь самого лучшего. Всегда. С днём рождения, Чиома 💕"
+Пусть жизнь будет к тебе доброй в этом году, и пусть ты продолжишь становиться тем человеком, которым тебе суждено быть.
+
+Наслаждайся своим днём, королева!! 💖`,
+        surprise: "Ты заслуживаешь работу. С днём рождения, Чиома 💕"
       },
+
       ja: {
         title: "チオマ、お誕生日おめでとう 🎂",
-        subtitle: "私が知っている中でいちばん素敵な人へ 💖",
-        message:
-`今日はただの日じゃない。特別なあなたが生まれた日だよ。
+        subtitle: "いちばん小さい子へ 💖",
+        message: `5'1 の女王様、お誕生日おめでとう 🎂
 
-あなたが私の人生にいてくれること、そして一緒に過ごす時間すべてに感謝してる。
-あなたは何もしなくても、周りを明るくしてくれる。
+今日という日が、あなたがどれだけ特別な存在かを思い出させてくれますように。周りの人にとってだけじゃなくて、あなたの佇まい、あなたという存在そのものが素敵だから。
 
-この一年が、平和と幸せ、成功、そして心から望むものをたくさん運んできますように。
+今年が、あなたにとって「しっくりくる」瞬間でいっぱいになりますように。無理しなくても手に入る平和と、ちゃんと続く幸せを。
 
-あなたは思っている以上に大切な存在だよ。`,
-        surprise: "いつも最高の幸せを。チオマ、お誕生日おめでとう 💕"
+この一年、人生があなたに優しくありますように。そして、あなたがあなたらしく成長していけますように。
+
+最高の一日を過ごしてね、クイーン!! 💖`,
+        surprise: "仕事、手に入れるべき。チオマ、お誕生日おめでとう 💕"
       }
     };
 
@@ -276,7 +278,6 @@ You’re appreciated more than you know.`,
       els.message.textContent = t.message;
       els.surprise.textContent = t.surprise;
 
-      // keep button labels readable
       if(lang === "ru"){
         els.surpriseBtn.textContent = "Нажми 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ Музыка" : "⏸ Пауза";
@@ -288,11 +289,9 @@ You’re appreciated more than you know.`,
         els.musicBtn.textContent = els.music.paused ? "▶ Play music" : "⏸ Pause music";
       }
 
-      // hide surprise when switching language
       els.surprise.style.display = "none";
     }
 
-    // Hearts
     function createHeart(){
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -307,13 +306,11 @@ You’re appreciated more than you know.`,
     }
     setInterval(createHeart, 320);
 
-    // Surprise
     els.surpriseBtn.addEventListener("click", () => {
       els.surprise.style.display = "block";
       for(let i=0;i<14;i++) setTimeout(createHeart, i*50);
     });
 
-    // Music (autoplay blocked until click)
     els.musicBtn.addEventListener("click", async () => {
       try{
         if(els.music.paused){
@@ -321,17 +318,14 @@ You’re appreciated more than you know.`,
         } else {
           els.music.pause();
         }
-        // update label for current language
         setLang(els.langSelect.value);
       } catch(e){
         alert("Music couldn’t play. Upload a file named music.mp3 to the repo (same folder as index.html).");
       }
     });
 
-    // Language change
     els.langSelect.addEventListener("change", (e) => setLang(e.target.value));
 
-    // Initial
     setLang("en");
   </script>
 </body>

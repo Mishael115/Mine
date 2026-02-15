@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday Chi-girl 🎂</title>
+  <title>Happy Birthday Chioma 🎂</title>
 
   <style>
     :root{
@@ -14,67 +14,132 @@
       --muted:#5b5b66;
       --shadow: 0 20px 60px rgba(20, 10, 30, .12);
       --radius: 22px;
+      --accent:#ff6fa5;
     }
 
+    *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      background:
+        radial-gradient(1200px 700px at 20% 10%, #ffd6e6 0%, transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, #ffe0f0 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       display:flex;
       align-items:center;
       justify-content:center;
       min-height:100vh;
       overflow:hidden;
+      padding: 28px 14px 60px;
     }
 
     .card{
       background:var(--card);
-      padding:40px 28px;
+      padding:34px 22px;
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      max-width:700px;
+      width:min(820px, 100%);
       text-align:center;
-      animation:fadeUp 1s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation:fadeUp 1s ease both;
+      position:relative;
+      z-index:1;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(255,255,255,.8);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+    }
+
+    select{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.8);
+      font-weight:700;
+      cursor:pointer;
+      box-shadow: 0 10px 25px rgba(20,10,30,.08);
     }
 
     h1{
-      font-size:42px;
-      margin-bottom:10px;
+      font-size: clamp(32px, 4.8vw, 54px);
+      margin: 14px 0 8px;
+      letter-spacing:-.02em;
     }
 
     .subtitle{
       color:var(--muted);
-      margin-bottom:20px;
-      font-size:18px;
+      margin:0 auto 16px;
+      font-size: clamp(15px, 2.2vw, 18px);
+      max-width: 70ch;
     }
 
     .message{
-      font-size:17px;
-      line-height:1.7;
+      font-size: 17px;
+      line-height: 1.75;
       color:var(--muted);
-      margin-bottom:25px;
+      margin: 0 auto 22px;
+      max-width: 72ch;
+      animation: fade .9s ease .15s both;
+      white-space: pre-line;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
     button{
-      padding:12px 18px;
+      padding:12px 16px;
       border:none;
-      border-radius:12px;
-      background:#ff6fa5;
+      border-radius:999px;
+      background:var(--accent);
       color:white;
-      font-weight:bold;
+      font-weight:800;
       cursor:pointer;
       font-size:15px;
+      box-shadow: 0 12px 30px rgba(255, 90, 140, .25);
+      transition: transform .15s ease;
     }
+    button:hover{ transform: translateY(-1px); }
+    button:active{ transform: translateY(0px) scale(.99); }
 
-    button:hover{
-      opacity:.9;
+    .ghost{
+      background: rgba(255,255,255,.8);
+      color: #2a2a33;
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 10px 25px rgba(20,10,30,.08);
     }
 
     .hidden{
       display:none;
-      margin-top:15px;
-      font-weight:bold;
-      color:#ff4f8b;
+      margin-top:14px;
+      font-weight:800;
+      color:#ff3f87;
+      animation: fadeUp .6s ease both;
+    }
+
+    .footer{
+      margin-top: 16px;
+      color:#6b6b78;
+      font-size: 13px;
     }
 
     /* floating hearts */
@@ -83,88 +148,191 @@
       bottom:-20px;
       width:14px;
       height:14px;
-      background:#ff6fa5;
+      background: rgba(255, 70, 140, .35);
       transform:rotate(45deg);
       animation:floatUp linear forwards;
+      border-radius: 4px;
+      filter: drop-shadow(0 10px 18px rgba(255, 60, 120, .12));
+      z-index:0;
+      opacity:.5;
     }
-
-    .heart:before,
-    .heart:after{
+    .heart:before,.heart:after{
       content:"";
       position:absolute;
       width:14px;
       height:14px;
-      background:#ff6fa5;
+      background: inherit;
       border-radius:50%;
     }
-
     .heart:before{left:-7px;}
     .heart:after{top:-7px;}
 
     @keyframes floatUp{
-      to{
-        transform:translateY(-110vh) rotate(45deg);
-        opacity:0;
-      }
+      to{ transform:translateY(-110vh) rotate(45deg); opacity:0; }
     }
-
     @keyframes fadeUp{
       from{opacity:0; transform:translateY(20px);}
       to{opacity:1; transform:translateY(0);}
     }
+    @keyframes fade{ from{opacity:0;} to{opacity:1;} }
   </style>
 </head>
 
 <body>
+  <main class="card">
+    <div class="top">
+      <div class="pill">🎂 Birthday Note for Chioma</div>
 
-<div class="card">
-  <h1>Happy Birthday Chi Chi 🎂</h1>
+      <label>
+        <select id="langSelect" aria-label="Choose language">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+        </select>
+      </label>
+    </div>
 
-  <div class="subtitle">
-    To the most amazing person I know 💖
-  </div>
+    <h1 id="title">Happy Birthday Chioma 🎂</h1>
+    <div class="subtitle" id="subtitle">To the most amazing person I know 💖</div>
 
-  <div class="message">
-    Today isn’t just another day, it’s the day someone truly special was born.<br><br>
+    <div class="message" id="message"></div>
 
-    I’m grateful for you, for your presence in my life, and for every moment we share.  
-    You make things brighter without even trying.<br><br>
+    <div class="actions">
+      <button id="surpriseBtn">Click me 🎁</button>
+      <button class="ghost" id="musicBtn">▶ Play music</button>
+    </div>
 
-    I hope this year brings you peace, happiness, success, and everything your heart truly deserves.<br><br>
+    <div id="surprise" class="hidden"></div>
 
-    You’re appreciated more than you know.
-  </div>
+    <div class="footer">Made with love and good vibes 💗</div>
+  </main>
 
-  <button onclick="showMessage()">Click me 🎁</button>
+  <!-- Upload a file named music.mp3 to your repo root for this to work -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
 
-  <div id="surprise" class="hidden">
-    You deserve the best. Always. Happy Birthday Chioma 💕
-  </div>
+  <script>
+    const TEXT = {
+      en: {
+        title: "Happy Birthday Chioma 🎂",
+        subtitle: "To the most amazing person I know 💖",
+        message:
+`Today isn’t just another day — it’s the day someone truly special was born.
 
-</div>
+I’m grateful for you, for your presence in my life, and for every moment we share.
+You make things brighter without even trying.
 
-<audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+I hope this year brings you peace, happiness, success, and everything your heart truly deserves.
 
-<script>
-function showMessage(){
-  document.getElementById("surprise").style.display="block";
-  document.getElementById("music").play();
-}
+You’re appreciated more than you know.`,
+        surprise: "You deserve the best. Always. Happy Birthday Chioma 💕"
+      },
+      ru: {
+        title: "С Днём Рождения, Чиома 🎂",
+        subtitle: "Самому прекрасному человеку, которого я знаю 💖",
+        message:
+`Сегодня — не просто день. Сегодня родился(лась) по-настоящему особенный человек.
 
-/* floating hearts */
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.animationDuration=(5+Math.random()*5)+"s";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),10000);
-}
+Я благодарен(на) тебе за то, что ты есть в моей жизни, и за каждый момент, который мы делим.
+С тобой всё становится светлее — даже без усилий.
 
-setInterval(createHeart,300);
-</script>
+Пусть этот год принесёт тебе спокойствие, счастье, успех и всё, чего искренне желает твоё сердце.
 
+Ты ценишься больше, чем ты думаешь.`,
+        surprise: "Ты заслуживаешь самого лучшего. Всегда. С днём рождения, Чиома 💕"
+      },
+      ja: {
+        title: "チオマ、お誕生日おめでとう 🎂",
+        subtitle: "私が知っている中でいちばん素敵な人へ 💖",
+        message:
+`今日はただの日じゃない。特別なあなたが生まれた日だよ。
+
+あなたが私の人生にいてくれること、そして一緒に過ごす時間すべてに感謝してる。
+あなたは何もしなくても、周りを明るくしてくれる。
+
+この一年が、平和と幸せ、成功、そして心から望むものをたくさん運んできますように。
+
+あなたは思っている以上に大切な存在だよ。`,
+        surprise: "いつも最高の幸せを。チオマ、お誕生日おめでとう 💕"
+      }
+    };
+
+    const els = {
+      title: document.getElementById("title"),
+      subtitle: document.getElementById("subtitle"),
+      message: document.getElementById("message"),
+      surprise: document.getElementById("surprise"),
+      langSelect: document.getElementById("langSelect"),
+      surpriseBtn: document.getElementById("surpriseBtn"),
+      musicBtn: document.getElementById("musicBtn"),
+      music: document.getElementById("music")
+    };
+
+    function setLang(lang){
+      const t = TEXT[lang] || TEXT.en;
+      els.title.textContent = t.title;
+      els.subtitle.textContent = t.subtitle;
+      els.message.textContent = t.message;
+      els.surprise.textContent = t.surprise;
+
+      // keep button labels readable
+      if(lang === "ru"){
+        els.surpriseBtn.textContent = "Нажми 🎁";
+        els.musicBtn.textContent = els.music.paused ? "▶ Музыка" : "⏸ Пауза";
+      } else if (lang === "ja"){
+        els.surpriseBtn.textContent = "押してみて 🎁";
+        els.musicBtn.textContent = els.music.paused ? "▶ 音楽" : "⏸ 一時停止";
+      } else {
+        els.surpriseBtn.textContent = "Click me 🎁";
+        els.musicBtn.textContent = els.music.paused ? "▶ Play music" : "⏸ Pause music";
+      }
+
+      // hide surprise when switching language
+      els.surprise.style.display = "none";
+    }
+
+    // Hearts
+    function createHeart(){
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random()*100 + "vw";
+      heart.style.animationDuration = (5 + Math.random()*6) + "s";
+      heart.style.opacity = (0.18 + Math.random()*0.45).toFixed(2);
+      const size = 10 + Math.random()*16;
+      heart.style.width = size + "px";
+      heart.style.height = size + "px";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(), 12000);
+    }
+    setInterval(createHeart, 320);
+
+    // Surprise
+    els.surpriseBtn.addEventListener("click", () => {
+      els.surprise.style.display = "block";
+      for(let i=0;i<14;i++) setTimeout(createHeart, i*50);
+    });
+
+    // Music (autoplay blocked until click)
+    els.musicBtn.addEventListener("click", async () => {
+      try{
+        if(els.music.paused){
+          await els.music.play();
+        } else {
+          els.music.pause();
+        }
+        // update label for current language
+        setLang(els.langSelect.value);
+      } catch(e){
+        alert("Music couldn’t play. Upload a file named music.mp3 to the repo (same folder as index.html).");
+      }
+    });
+
+    // Language change
+    els.langSelect.addEventListener("change", (e) => setLang(e.target.value));
+
+    // Initial
+    setLang("en");
+  </script>
 </body>
 </html>

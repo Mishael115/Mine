@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday Chiomzy 🎂</title>
+  <title>Happy Birthday Chiomzyy 🎂</title>
 
   <style>
     :root{
@@ -18,6 +18,8 @@
     }
 
     *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -25,12 +27,22 @@
         radial-gradient(1200px 700px at 20% 10%, #ffd6e6 0%, transparent 60%),
         radial-gradient(900px 600px at 80% 20%, #ffe0f0 0%, transparent 55%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
       min-height:100vh;
-      overflow:hidden;
+      overflow-x:hidden;
+      overflow-y:auto;
       padding: 28px 14px 60px;
+    }
+
+    /* Layout wrapper so the page can scroll */
+    .page{
+      width:100%;
+      max-width: 920px;
+      margin: 0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+      padding-bottom: 40px;
     }
 
     .card{
@@ -142,6 +154,34 @@
       font-size: 13px;
     }
 
+    /* Scroll indicator */
+    .scroll-indicator{
+      margin-top:16px;
+      font-size:14px;
+      color:var(--muted);
+      animation: bounce 1.5s infinite;
+      user-select:none;
+    }
+    @keyframes bounce{
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    /* Section card (for scroll content) */
+    .section-title{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing:-.01em;
+      color: var(--ink);
+    }
+    .section-text{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      white-space: pre-line;
+    }
+
     /* floating hearts */
     .heart{
       position:fixed;
@@ -155,6 +195,7 @@
       filter: drop-shadow(0 10px 18px rgba(255, 60, 120, .12));
       z-index:0;
       opacity:.5;
+      pointer-events:none;
     }
     .heart:before,.heart:after{
       content:"";
@@ -179,33 +220,50 @@
 </head>
 
 <body>
-  <main class="card">
-    <div class="top">
-      <div class="pill">🎂 Birthday Note for Chioma</div>
+  <div class="page">
+    <!-- MAIN CARD -->
+    <main class="card" id="top">
+      <div class="top">
+        <div class="pill">🎂 Birthday Note for Chioma</div>
 
-      <label>
-        <select id="langSelect" aria-label="Choose language">
-          <option value="en">English</option>
-          <option value="ru">Русский</option>
-          <option value="ja">日本語</option>
-        </select>
-      </label>
-    </div>
+        <label>
+          <select id="langSelect" aria-label="Choose language">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+          </select>
+        </label>
+      </div>
 
-    <h1 id="title">Happy Birthday Chiomzy 🎂</h1>
-    <div class="subtitle" id="subtitle">To the Shortest 💖</div>
+      <h1 id="title">Happy Birthday Chioma 🎂</h1>
+      <div class="subtitle" id="subtitle">To the Shortest 💖</div>
 
-    <div class="message" id="message"></div>
+      <div class="message" id="message"></div>
 
-    <div class="actions">
-      <button id="surpriseBtn">Click me 🎁</button>
-      <button class="ghost" id="musicBtn">▶ Play music</button>
-    </div>
+      <div class="actions">
+        <button id="surpriseBtn">Click me 🎁</button>
+        <button class="ghost" id="musicBtn">▶ Play music</button>
+        <button class="ghost" id="scrollBtn">Scroll ↓</button>
+      </div>
 
-    <div id="surprise" class="hidden"></div>
+      <div id="surprise" class="hidden"></div>
 
-    <div class="footer">Made with love and good vibes 💗</div>
-  </main>
+      <div class="footer">Made with love and good vibes 💗</div>
+      <div class="scroll-indicator">Scroll down ↓</div>
+    </main>
+
+    <!-- SCROLL SECTION 1 -->
+    <section class="card" id="section1">
+      <h2 class="section-title" id="sec1Title">A little reminder 💗</h2>
+      <p class="section-text" id="sec1Text"></p>
+    </section>
+
+    <!-- SCROLL SECTION 2 -->
+    <section class="card" id="section2">
+      <h2 class="section-title" id="sec2Title">One more thing ✨</h2>
+      <p class="section-text" id="sec2Text"></p>
+    </section>
+  </div>
 
   <!-- Upload a file named music.mp3 to your repo root for this to work -->
   <audio id="music" loop>
@@ -226,7 +284,13 @@ You deserve a year filled with clarity, growth, genuine happiness, and moments t
 I hope life meets you with kindness this year, and that you continue becoming the person you’re meant to be.
 
 Enjoy your day, Queen!! 💖`,
-        surprise: "You deserve a job. Happy Birthday Chioma 💕"
+        surprise: "You deserve a job. Happy Birthday Chioma 💕",
+        sec1Title: "A little reminder 💗",
+        sec1Text: `You don’t need to shrink yourself for anyone.
+Keep being you — fully, loudly, and beautifully.`,
+        sec2Title: "One more thing ✨",
+        sec2Text: `Eat cake. Enjoy the love. Rest.
+And let today be soft and sweet.`
       },
 
       ru: {
@@ -241,7 +305,13 @@ Enjoy your day, Queen!! 💖`,
 Пусть жизнь будет к тебе доброй в этом году, и пусть ты продолжишь становиться тем человеком, которым тебе суждено быть.
 
 Наслаждайся своим днём, королева!! 💖`,
-        surprise: "Ты заслуживаешь работу. С днём рождения, Чиома 💕"
+        surprise: "Ты заслуживаешь работу. С днём рождения, Чиома 💕",
+        sec1Title: "Небольшое напоминание 💗",
+        sec1Text: `Тебе не нужно уменьшать себя ради кого-то.
+Оставайся собой — полностью, смело и красиво.`,
+        sec2Title: "И ещё ✨",
+        sec2Text: `Ешь торт. Наслаждайся любовью. Отдохни.
+Пусть этот день будет мягким и сладким.`
       },
 
       ja: {
@@ -256,7 +326,13 @@ Enjoy your day, Queen!! 💖`,
 この一年、人生があなたに優しくありますように。そして、あなたがあなたらしく成長していけますように。
 
 最高の一日を過ごしてね、クイーン!! 💖`,
-        surprise: "仕事、手に入れるべき。チオマ、お誕生日おめでとう 💕"
+        surprise: "仕事、手に入れるべき。チオマ、お誕生日おめでとう 💕",
+        sec1Title: "ちょっとしたお願い 💗",
+        sec1Text: `誰のためにも小さくならなくていい。
+あなたはあなたのままで最高だよ。`,
+        sec2Title: "最後にひとこと ✨",
+        sec2Text: `ケーキ食べて、愛を感じて、休んでね。
+今日はやさしく甘い一日になりますように。`
       }
     };
 
@@ -268,7 +344,12 @@ Enjoy your day, Queen!! 💖`,
       langSelect: document.getElementById("langSelect"),
       surpriseBtn: document.getElementById("surpriseBtn"),
       musicBtn: document.getElementById("musicBtn"),
-      music: document.getElementById("music")
+      music: document.getElementById("music"),
+      scrollBtn: document.getElementById("scrollBtn"),
+      sec1Title: document.getElementById("sec1Title"),
+      sec1Text: document.getElementById("sec1Text"),
+      sec2Title: document.getElementById("sec2Title"),
+      sec2Text: document.getElementById("sec2Text"),
     };
 
     function setLang(lang){
@@ -278,15 +359,23 @@ Enjoy your day, Queen!! 💖`,
       els.message.textContent = t.message;
       els.surprise.textContent = t.surprise;
 
+      els.sec1Title.textContent = t.sec1Title;
+      els.sec1Text.textContent = t.sec1Text;
+      els.sec2Title.textContent = t.sec2Title;
+      els.sec2Text.textContent = t.sec2Text;
+
       if(lang === "ru"){
         els.surpriseBtn.textContent = "Нажми 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ Музыка" : "⏸ Пауза";
+        els.scrollBtn.textContent = "Вниз ↓";
       } else if (lang === "ja"){
         els.surpriseBtn.textContent = "押してみて 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ 音楽" : "⏸ 一時停止";
+        els.scrollBtn.textContent = "下へ ↓";
       } else {
         els.surpriseBtn.textContent = "Click me 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ Play music" : "⏸ Pause music";
+        els.scrollBtn.textContent = "Scroll ↓";
       }
 
       els.surprise.style.display = "none";
@@ -322,6 +411,10 @@ Enjoy your day, Queen!! 💖`,
       } catch(e){
         alert("Music couldn’t play. Upload a file named music.mp3 to the repo (same folder as index.html).");
       }
+    });
+
+    els.scrollBtn.addEventListener("click", () => {
+      document.getElementById("section1").scrollIntoView({behavior:"smooth"});
     });
 
     els.langSelect.addEventListener("change", (e) => setLang(e.target.value));

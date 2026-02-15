@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Happy Birthday Chiomzyy 🎂</title>
+  <title>Happy Birthday Chiomzy 🎂</title>
+
+  <!-- Sexy premium fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -22,7 +25,7 @@
 
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family: 'Playfair Display', serif;
       background:
         radial-gradient(1200px 700px at 20% 10%, #ffd6e6 0%, transparent 60%),
         radial-gradient(900px 600px at 80% 20%, #ffe0f0 0%, transparent 55%),
@@ -33,7 +36,6 @@
       padding: 28px 14px 60px;
     }
 
-    /* Layout wrapper so the page can scroll */
     .page{
       width:100%;
       max-width: 920px;
@@ -42,7 +44,6 @@
       flex-direction:column;
       gap:18px;
       align-items:center;
-      padding-bottom: 40px;
     }
 
     .card{
@@ -53,133 +54,91 @@
       width:min(820px, 100%);
       text-align:center;
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       animation:fadeUp 1s ease both;
       position:relative;
       z-index:1;
     }
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
-      margin-bottom: 10px;
+    h1{
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(46px, 7vw, 72px);
+      margin: 14px 0 8px;
+      color:#ff4f8b;
+      min-height: 1.2em; /* keeps layout stable while typing */
+    }
+
+    /* Typewriter caret */
+    .caret{
+      display:inline-block;
+      width: 10px;
+      margin-left: 6px;
+      border-right: 2px solid rgba(255,79,139,.8);
+      transform: translateY(2px);
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink{
+      50%{ border-color: transparent; }
+    }
+
+    .subtitle{
+      font-style: italic;
+      color:var(--muted);
+      margin-bottom:16px;
+      font-size: clamp(16px, 2.4vw, 20px);
+    }
+
+    .message{
+      font-size: 18px;
+      line-height: 1.8;
+      color:var(--muted);
+      white-space: pre-line;
     }
 
     .pill{
       padding:8px 12px;
       border-radius:999px;
       background: rgba(255,255,255,.65);
-      border:1px solid rgba(255,255,255,.8);
-      color:var(--muted);
       font-size:13px;
-      font-weight:600;
+      margin-bottom:10px;
     }
 
     select{
       padding:10px 12px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.9);
+      border:1px solid rgba(255,255,255,.8);
       background: rgba(255,255,255,.8);
-      font-weight:700;
+      font-family:inherit;
+      font-weight:600;
+      margin-top:10px;
       cursor:pointer;
-      box-shadow: 0 10px 25px rgba(20,10,30,.08);
-    }
-
-    h1{
-      font-size: clamp(32px, 4.8vw, 54px);
-      margin: 14px 0 8px;
-      letter-spacing:-.02em;
-    }
-
-    .subtitle{
-      color:var(--muted);
-      margin:0 auto 16px;
-      font-size: clamp(15px, 2.2vw, 18px);
-      max-width: 70ch;
-    }
-
-    .message{
-      font-size: 17px;
-      line-height: 1.75;
-      color:var(--muted);
-      margin: 0 auto 22px;
-      max-width: 72ch;
-      animation: fade .9s ease .15s both;
-      white-space: pre-line;
-    }
-
-    .actions{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      flex-wrap:wrap;
     }
 
     button{
-      padding:12px 16px;
+      padding:12px 18px;
       border:none;
       border-radius:999px;
       background:var(--accent);
       color:white;
-      font-weight:800;
+      font-weight:700;
       cursor:pointer;
-      font-size:15px;
-      box-shadow: 0 12px 30px rgba(255, 90, 140, .25);
+      margin:6px;
+      box-shadow: 0 12px 30px rgba(255, 90, 140, .18);
       transition: transform .15s ease;
     }
     button:hover{ transform: translateY(-1px); }
-    button:active{ transform: translateY(0px) scale(.99); }
+    button:active{ transform: translateY(0) scale(.99); }
 
     .ghost{
-      background: rgba(255,255,255,.8);
-      color: #2a2a33;
+      background: rgba(255,255,255,.85);
+      color:#1f1f27;
       border: 1px solid rgba(255,255,255,.9);
       box-shadow: 0 10px 25px rgba(20,10,30,.08);
     }
 
-    .hidden{
-      display:none;
-      margin-top:14px;
-      font-weight:800;
-      color:#ff3f87;
-      animation: fadeUp .6s ease both;
-    }
-
     .footer{
-      margin-top: 16px;
-      color:#6b6b78;
-      font-size: 13px;
-    }
-
-    /* Scroll indicator */
-    .scroll-indicator{
       margin-top:16px;
-      font-size:14px;
-      color:var(--muted);
-      animation: bounce 1.5s infinite;
-      user-select:none;
-    }
-    @keyframes bounce{
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(7px); }
-    }
-
-    /* Section card (for scroll content) */
-    .section-title{
-      margin: 0 0 10px;
-      font-size: 20px;
-      letter-spacing:-.01em;
-      color: var(--ink);
-    }
-    .section-text{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:16px;
-      white-space: pre-line;
+      font-size:13px;
+      color:#777;
     }
 
     /* floating hearts */
@@ -193,10 +152,11 @@
       animation:floatUp linear forwards;
       border-radius: 4px;
       filter: drop-shadow(0 10px 18px rgba(255, 60, 120, .12));
-      z-index:0;
-      opacity:.5;
+      opacity:.6;
       pointer-events:none;
+      z-index:0;
     }
+
     .heart:before,.heart:after{
       content:"";
       position:absolute;
@@ -205,139 +165,97 @@
       background: inherit;
       border-radius:50%;
     }
+
     .heart:before{left:-7px;}
     .heart:after{top:-7px;}
 
     @keyframes floatUp{
-      to{ transform:translateY(-110vh) rotate(45deg); opacity:0; }
+      to{ transform:translateY(-110vh) rotate(45deg); opacity:0;}
     }
+
     @keyframes fadeUp{
       from{opacity:0; transform:translateY(20px);}
       to{opacity:1; transform:translateY(0);}
     }
-    @keyframes fade{ from{opacity:0;} to{opacity:1;} }
   </style>
 </head>
 
 <body>
   <div class="page">
-    <!-- MAIN CARD -->
-    <main class="card" id="top">
-      <div class="top">
-        <div class="pill">🎂 Birthday Note for Chioma</div>
+    <div class="card">
+      <div class="pill">🎂 Birthday Note for Chiomzy</div>
 
-        <label>
-          <select id="langSelect" aria-label="Choose language">
-            <option value="en">English</option>
-            <option value="ru">Русский</option>
-            <option value="ja">日本語</option>
-          </select>
-        </label>
-      </div>
+      <select id="langSelect" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="ja">日本語</option>
+      </select>
 
-      <h1 id="title">Happy Birthday Chioma 🎂</h1>
+      <!-- Typewriter target -->
+      <h1><span id="title"></span><span class="caret" id="caret"></span></h1>
+
       <div class="subtitle" id="subtitle">To the Shortest 💖</div>
 
       <div class="message" id="message"></div>
 
-      <div class="actions">
-        <button id="surpriseBtn">Click me 🎁</button>
-        <button class="ghost" id="musicBtn">▶ Play music</button>
-        <button class="ghost" id="scrollBtn">Scroll ↓</button>
-      </div>
+      <button id="surpriseBtn">Click me 🎁</button>
+      <button class="ghost" id="musicBtn">▶ Play music 🎵</button>
 
-      <div id="surprise" class="hidden"></div>
+      <div id="surprise" style="display:none;margin-top:10px;font-weight:700;color:#ff3f87;"></div>
 
       <div class="footer">Made with love and good vibes 💗</div>
-      <div class="scroll-indicator">Scroll down ↓</div>
-    </main>
-
-    <!-- SCROLL SECTION 1 -->
-    <section class="card" id="section1">
-      <h2 class="section-title" id="sec1Title">A little reminder 💗</h2>
-      <p class="section-text" id="sec1Text"></p>
-    </section>
-
-    <!-- SCROLL SECTION 2 -->
-    <section class="card" id="section2">
-      <h2 class="section-title" id="sec2Title">One more thing ✨</h2>
-      <p class="section-text" id="sec2Text"></p>
-    </section>
+    </div>
   </div>
 
-  <!-- Upload a file named music.mp3 to your repo root for this to work -->
   <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg" />
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     const TEXT = {
-      en: {
-        title: "Happy Birthday Chioma 🎂",
-        subtitle: "To the Shortest 💖",
-        message: `Happy Birthday to a 5'1 Queen 🎂
+      en:{
+        title:"Happy Birthday Chiomzy 🎂",
+        subtitle:"To the Shortest 💖",
+        message:`Happy Birthday to a 5'1 Queen 🎂
 
 I hope today reminds you how special you are, not just to the people around you, but in the way you carry yourself and exist in the world.
 
-You deserve a year filled with clarity, growth, genuine happiness, and moments that feel right to you. The kind of peace that doesn’t need to be forced, and the kind of joy that stays.
+You deserve a year filled with clarity, growth, genuine happiness, and moments that feel right to you.
 
-I hope life meets you with kindness this year, and that you continue becoming the person you’re meant to be.
+I hope life meets you with kindness this year.
 
-Enjoy your day, Queen!! 💖`,
-        surprise: "You deserve a job. Happy Birthday Chioma 💕",
-        sec1Title: "A little reminder 💗",
-        sec1Text: `You don’t need to shrink yourself for anyone.
-Keep being you — fully, loudly, and beautifully.`,
-        sec2Title: "One more thing ✨",
-        sec2Text: `Eat cake. Enjoy the love. Rest.
-And let today be soft and sweet.`
+Enjoy your day, Queen 💖`,
+        surprise:"You deserve everything good. Happy Birthday Chiomzy 💕"
       },
+      ru:{
+        title:"С Днём Рождения, Чиомзи 🎂",
+        subtitle:"Самой маленькой 💖",
+        message:`С днём рождения, королева 5'1 🎂
 
-      ru: {
-        title: "С Днём Рождения, Чиома 🎂",
-        subtitle: "Самой маленькой 💖",
-        message: `С днём рождения, королева 5'1 🎂
+Ты заслуживаешь счастья, роста и спокойствия.
 
-Пусть сегодняшний день напомнит тебе, какая ты особенная — не только для людей рядом, но и в том, как ты держишься и как ты существуешь в этом мире.
+Пусть этот год будет добрым к тебе.
 
-Ты заслуживаешь год, наполненный ясностью, ростом, настоящим счастьем и моментами, которые будут правильными именно для тебя. Таким спокойствием, которое не нужно выдавливать, и такой радостью, которая остаётся.
-
-Пусть жизнь будет к тебе доброй в этом году, и пусть ты продолжишь становиться тем человеком, которым тебе суждено быть.
-
-Наслаждайся своим днём, королева!! 💖`,
-        surprise: "Ты заслуживаешь работу. С днём рождения, Чиома 💕",
-        sec1Title: "Небольшое напоминание 💗",
-        sec1Text: `Тебе не нужно уменьшать себя ради кого-то.
-Оставайся собой — полностью, смело и красиво.`,
-        sec2Title: "И ещё ✨",
-        sec2Text: `Ешь торт. Наслаждайся любовью. Отдохни.
-Пусть этот день будет мягким и сладким.`
+Наслаждайся своим днём 💖`,
+        surprise:"С днём рождения, Чиомзи 💕"
       },
+      ja:{
+        title:"チオムジー、お誕生日おめでとう 🎂",
+        subtitle:"いちばん小さい子へ 💖",
+        message:`5'1 の女王様、お誕生日おめでとう 🎂
 
-      ja: {
-        title: "チオマ、お誕生日おめでとう 🎂",
-        subtitle: "いちばん小さい子へ 💖",
-        message: `5'1 の女王様、お誕生日おめでとう 🎂
+あなたは幸せと成長に値する人です。
 
-今日という日が、あなたがどれだけ特別な存在かを思い出させてくれますように。周りの人にとってだけじゃなくて、あなたの佇まい、あなたという存在そのものが素敵だから。
+素敵な一年になりますように。
 
-今年が、あなたにとって「しっくりくる」瞬間でいっぱいになりますように。無理しなくても手に入る平和と、ちゃんと続く幸せを。
-
-この一年、人生があなたに優しくありますように。そして、あなたがあなたらしく成長していけますように。
-
-最高の一日を過ごしてね、クイーン!! 💖`,
-        surprise: "仕事、手に入れるべき。チオマ、お誕生日おめでとう 💕",
-        sec1Title: "ちょっとしたお願い 💗",
-        sec1Text: `誰のためにも小さくならなくていい。
-あなたはあなたのままで最高だよ。`,
-        sec2Title: "最後にひとこと ✨",
-        sec2Text: `ケーキ食べて、愛を感じて、休んでね。
-今日はやさしく甘い一日になりますように。`
+楽しんでね 💖`,
+        surprise:"お誕生日おめでとう、チオムジー 💕"
       }
     };
 
     const els = {
       title: document.getElementById("title"),
+      caret: document.getElementById("caret"),
       subtitle: document.getElementById("subtitle"),
       message: document.getElementById("message"),
       surprise: document.getElementById("surprise"),
@@ -345,59 +263,54 @@ And let today be soft and sweet.`
       surpriseBtn: document.getElementById("surpriseBtn"),
       musicBtn: document.getElementById("musicBtn"),
       music: document.getElementById("music"),
-      scrollBtn: document.getElementById("scrollBtn"),
-      sec1Title: document.getElementById("sec1Title"),
-      sec1Text: document.getElementById("sec1Text"),
-      sec2Title: document.getElementById("sec2Title"),
-      sec2Text: document.getElementById("sec2Text"),
     };
+
+    let typingTimer = null;
+
+    function typewriter(text, speed=55){
+      clearInterval(typingTimer);
+      els.title.textContent = "";
+      els.caret.style.display = "inline-block";
+
+      let i = 0;
+      typingTimer = setInterval(() => {
+        els.title.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length){
+          clearInterval(typingTimer);
+          // hide caret after a short pause
+          setTimeout(() => { els.caret.style.display = "none"; }, 600);
+        }
+      }, speed);
+    }
 
     function setLang(lang){
       const t = TEXT[lang] || TEXT.en;
-      els.title.textContent = t.title;
+
+      // Type the title each time language changes
+      typewriter(t.title, 50);
+
       els.subtitle.textContent = t.subtitle;
       els.message.textContent = t.message;
       els.surprise.textContent = t.surprise;
-
-      els.sec1Title.textContent = t.sec1Title;
-      els.sec1Text.textContent = t.sec1Text;
-      els.sec2Title.textContent = t.sec2Title;
-      els.sec2Text.textContent = t.sec2Text;
+      els.surprise.style.display = "none";
 
       if(lang === "ru"){
         els.surpriseBtn.textContent = "Нажми 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ Музыка" : "⏸ Пауза";
-        els.scrollBtn.textContent = "Вниз ↓";
       } else if (lang === "ja"){
         els.surpriseBtn.textContent = "押してみて 🎁";
         els.musicBtn.textContent = els.music.paused ? "▶ 音楽" : "⏸ 一時停止";
-        els.scrollBtn.textContent = "下へ ↓";
       } else {
         els.surpriseBtn.textContent = "Click me 🎁";
-        els.musicBtn.textContent = els.music.paused ? "▶ Play music" : "⏸ Pause music";
-        els.scrollBtn.textContent = "Scroll ↓";
+        els.musicBtn.textContent = els.music.paused ? "▶ Play music 🎵" : "⏸ Pause";
       }
-
-      els.surprise.style.display = "none";
     }
 
-    function createHeart(){
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.style.left = Math.random()*100 + "vw";
-      heart.style.animationDuration = (5 + Math.random()*6) + "s";
-      heart.style.opacity = (0.18 + Math.random()*0.45).toFixed(2);
-      const size = 10 + Math.random()*16;
-      heart.style.width = size + "px";
-      heart.style.height = size + "px";
-      document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(), 12000);
-    }
-    setInterval(createHeart, 320);
+    els.langSelect.addEventListener("change", (e) => setLang(e.target.value));
 
     els.surpriseBtn.addEventListener("click", () => {
-      els.surprise.style.display = "block";
-      for(let i=0;i<14;i++) setTimeout(createHeart, i*50);
+      els.surprise.style.display="block";
     });
 
     els.musicBtn.addEventListener("click", async () => {
@@ -407,18 +320,28 @@ And let today be soft and sweet.`
         } else {
           els.music.pause();
         }
+        // refresh button label in selected language
         setLang(els.langSelect.value);
       } catch(e){
         alert("Music couldn’t play. Upload a file named music.mp3 to the repo (same folder as index.html).");
       }
     });
 
-    els.scrollBtn.addEventListener("click", () => {
-      document.getElementById("section1").scrollIntoView({behavior:"smooth"});
-    });
+    // Floating hearts
+    setInterval(()=>{
+      const heart=document.createElement("div");
+      heart.className="heart";
+      heart.style.left=Math.random()*100+"vw";
+      heart.style.animationDuration=(5+Math.random()*5)+"s";
+      heart.style.opacity=(0.18+Math.random()*0.5).toFixed(2);
+      const size = 10 + Math.random()*16;
+      heart.style.width = size + "px";
+      heart.style.height = size + "px";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),11000);
+    },300);
 
-    els.langSelect.addEventListener("change", (e) => setLang(e.target.value));
-
+    // Initial load
     setLang("en");
   </script>
 </body>
